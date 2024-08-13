@@ -1,0 +1,15 @@
+<% content_for :title, "Edit Customer" %>
+
+<%= turbo_stream_from @customer %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "customer_form",
+    formaction: update_customer_path(params[:customer_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", show_customer_path(@customer), role: "button" %>
+
+</controls>
+
+
+<%= render "form", customer: @customer, disabled: false %>

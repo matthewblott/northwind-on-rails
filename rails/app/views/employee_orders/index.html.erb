@@ -1,0 +1,48 @@
+<% content_for :title, "Employee Orders" %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "Checklist", checklist_employee_order_path(params[:employee_id]),
+    data: { controller: 'bridge--link-to', bridge__link_to_target: "submit", bridge_title: 'Checklist' },
+    role: "button" %>
+
+  <%#= link_to "Paid", paid_employee_order_path(params[:employee_id]),
+    data: { controller: 'bridge--link-to', bridge__link_to_target: "submit", bridge_title: 'Paid' },
+    role: "button" %>
+
+  <%= link_to "Back", show_employee_path(params[:employee_id]), role: "button" %>
+
+</controls>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>Company Name</th>
+      <th>Order Date</th>
+      <th>Paid Date</th>
+      <th>Shipped Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td title="Order Id">
+          <%= link_to order.id, show_order_path(order) %>
+        </td>
+        <td title="Company Name">
+          <%= order.customer.company_name %>
+        </td>
+        <td title="Order Date">
+          <%= order.order_date.strftime("%y-%m-%d") %>
+        </td>
+        <td title="Paid Date">
+          <%= order.paid_date.strftime("%y-%m-%d") %>
+        </td>
+        <td title="Shipped Date">
+          <%= order.shipped_date&.strftime("%Y-%m-%d") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,8 @@
+<h1>Customer Address</h1>
+
+<div>
+  <%= link_to "Edit", edit_customer_address_path(params[:customer_id], params[:address_id]), role: "button" %>
+  <%= link_to "Back", index_customer_address_path(params[:customer_id]), role: "button" %>
+</div>
+
+<%= render "address_form", address: @address %>

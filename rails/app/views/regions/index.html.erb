@@ -1,0 +1,22 @@
+<% content_for :title, "Regions" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_region_path, new_path: new_region_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Region Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @regions.each do |region| %>
+      <tr>
+        <td title="Region Name">
+          <%= link_to region.name, show_region_path(region) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

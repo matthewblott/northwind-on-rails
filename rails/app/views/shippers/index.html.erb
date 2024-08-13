@@ -1,0 +1,22 @@
+<% content_for :title, "Shippers" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_shipper_path, new_path: new_shipper_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shippers.each do |shipper| %>
+      <tr>
+        <td title="Company Name">
+          <%= link_to shipper.company_name, show_shipper_path(shipper) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

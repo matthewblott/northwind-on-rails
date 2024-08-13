@@ -1,0 +1,15 @@
+<% content_for :title, "Edit Order Item" %>
+
+<%= turbo_stream_from @order_item %>
+
+<controls class="turbo-native-hidden">
+
+  <%= button_tag "Update", form: "order_item_form",
+    formaction: update_order_item_path(params[:order_id],params[:product_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+
+  <%= link_to "Back", show_order_item_path, role: "button" %>
+</controls>
+
+<%= render "form", order_item: @order_item, disabled: false %>

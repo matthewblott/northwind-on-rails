@@ -1,0 +1,21 @@
+<% content_for :title, "Order" %>
+
+<%= turbo_stream_from @order %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "Edit", edit_order_path(@order),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+
+  <% unless turbo_native_ios? %>
+    <%= link_to "Items", index_order_item_path(@order),
+      data: { controller: 'bridge--link-to', bridge__link_to_target: "submit", bridge_title: 'Items' },
+      role: "button" %>
+  <% end %>
+
+  <%= link_to "Back", index_order_path, role: "button" %>
+
+</controls>
+
+<%= render "form", order: @order, disabled: true %>

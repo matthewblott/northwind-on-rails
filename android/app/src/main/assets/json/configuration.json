@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "screenshots_enabled": true
+  },
+  "rules": [
+    {
+      "patterns": [
+        ".*"
+      ],
+      "properties": {
+        "context": "default",
+        "uri": "northwind://fragment/",
+        "fallback_uri": "northwind://fragment/",
+        "pull_to_refresh_enabled": true
+      }
+    },
+    {
+      "patterns": [
+        "^/employees/sign_in/$",
+        "^/employees/sign_in$"
+      ],
+      "properties": {
+        "context": "default",
+        "uri": "northwind://fragment/login",
+        "fallback_uri": "northwind://fragment/login",
+        "title": "Login"
+      }
+    },
+
+    {
+      "patterns": [
+        "^$",
+        "^/$"
+      ],
+      "properties": {
+        "uri": "northwind://fragment/home",
+        "presentation": "replace_root",
+        "title": "Home"
+      }
+    },
+    {
+      "patterns": [
+        "/strada-form$"
+      ],
+      "properties": {
+        "context": "modal",
+        "uri": "northwind://fragment/web/modal",
+        "pull_to_refresh_enabled": false
+      }
+    }
+  ]
+}

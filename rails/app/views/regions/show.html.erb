@@ -1,0 +1,16 @@
+<% content_for :title, "Region" %>
+<%= turbo_stream_from @region %>
+
+<%= turbo_stream_from @region %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "Edit", edit_region_path(@region),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+
+  <%= link_to "Back", index_region_path, role: "button" %>
+
+</controls>
+
+<%= render "form", region: @region, disabled: true %>

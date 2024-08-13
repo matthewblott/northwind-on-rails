@@ -1,0 +1,21 @@
+/**
+ * Turbo Native
+*/
+
+
+/* :root { */
+/*   --pico-border-radius: 1rem; */
+/* } */
+
+body.turbo-native .turbo-native-hidden {
+  display: none;
+}
+
+
+  /* Set to 1rem for Turbo */
+  /* --pico-border-radius: 1rem; */
+
+/* body.turbo-native field { */
+/*   margin-left: calc(var(--pico-spacing) * 2); */
+/*   margin-right: calc(var(--pico-spacing) * 2); */
+/* } */

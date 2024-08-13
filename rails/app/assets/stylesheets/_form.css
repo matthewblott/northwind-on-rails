@@ -1,0 +1,21 @@
+/**
+ * Form 
+*/
+
+fieldset {
+  display: grid;
+  /* Disable for Turbo */
+  /* grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));  */
+  grid-gap: var(--pico-spacing);
+}
+
+/* field { */
+/*   margin-right: calc(var(--pico-spacing) * 1); */
+/* } */
+
+/* Disable for mobile screens because it makes left and right margins unmatched */
+/* @media (min-width: 1024px) { */
+/*   field { */
+/*     margin-right: calc(var(--pico-spacing) * 2); */
+/*   } */
+/* } */

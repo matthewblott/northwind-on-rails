@@ -1,0 +1,14 @@
+<h1>Edit Customer Address</h1>
+
+<controls>
+  <%= button_tag "Update", form: "address_form", formaction: update_customer_address_path(params[:customer_id], params[:address_id]), method: :patch %>
+  <%= button_tag "Delete", form: "delete_address_form" %>
+  <%= link_to "Back", index_customer_address_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete, url: destroy_customer_address_path(params[:customer_id], params[:address_id]), :html => {:id => 'delete_address_form'} do |form| %>
+  <input type="hidden" name="address_id" value=<%= params[:address_id] %>>
+  <input type="hidden" name="customer_id" value=<%= params[params[:customer_id]] %>>
+<% end %>
+
+<%= render "address_form", address: @address %>

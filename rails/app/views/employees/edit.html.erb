@@ -1,0 +1,27 @@
+<% content_for :title, "Edit Employee" %>
+
+<%= turbo_stream_from @employee %>
+
+<controls class="turbo-native-hidden">
+  <%#= button_tag "Delete", form: "delete_employee_form" %>
+
+  <%= button_tag "Delete", form: "delete_employee_form",
+    data: { controller: 'bridge--delete', bridge__delete_target: "submit" },
+    method: :patch %>
+
+  <%= button_tag "Update", form: "employee_form",
+    formaction: update_employee_path(params[:employee_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_employee_path(params[:employee_id]), role: "button" %>
+</controls>
+
+<%= render "form", employee: @employee, disabled: false %>
+
+<!-- Delete form -->
+<%= form_with method: :delete,
+  url: destroy_employee_path(params[:employee_id]),
+  :html => {:id => 'delete_employee_form'} do |form| %>
+  <input type="hidden" name="employee_id" value=<%= params[:employee_id] %>>
+<% end %>
+

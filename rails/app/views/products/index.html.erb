@@ -1,0 +1,26 @@
+<% content_for :title, "Products" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_product_path, new_path: new_product_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product Code</th>
+      <th>Product Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td title="Product Code">
+          <%= link_to product.product_code, show_product_path(product) %>
+        </td>
+        <td title="Product Name">
+          <%= product.product_name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

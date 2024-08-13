@@ -1,0 +1,61 @@
+
+
+@import url('_styles.css');
+@import url('_color-schemes.css');
+@import url('_document.css');
+@import url('_accessibility-user-interaction.css');
+@import url('_accordion-details.css');
+@import url('_basics-form-elements.css');
+@import url('_button.css');
+@import url('_card-article.css');
+@import url('_checkboxes-radios-and-switches.css');
+@import url('_code.css');
+@import url('_embedded-content.css');
+@import url('_figure.css');
+@import url('_group-rolegroup-rolesearch.css');
+@import url('_input-type-color.css');
+@import url('_input-type-datetime.css');
+@import url('_input-type-file.css');
+@import url('_input-type-range.css');
+@import url('_input-type-search.css');
+@import url('_landmarks.css');
+@import url('_link.css');
+@import url('_loading-aria-busytrue.css');
+@import url('_miscs.css');
+@import url('_modal-dialog.css');
+@import url('_nav.css');
+@import url('_progress.css');
+@import url('_reduce-motion-features.css');
+@import url('_section.css');
+@import url('_table.css');
+@import url('_tooltip-data-tooltip.css');
+@import url('_typography.css');
+@import url('_menu.css');
+@import url('_form.css');
+@import url('_turbo-native.css');
+
+.hidden {
+  display: none !important;
+}
+
+p {
+  padding: var(--pico-spacing);
+}
+
+.header-spacer {
+  padding-top: 20px !important;
+}
+
+body > main {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+fieldset {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
+body.turbo-native tr {
+  height: 135px;
+}

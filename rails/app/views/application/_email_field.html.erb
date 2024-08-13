@@ -1,0 +1,11 @@
+<field>
+  <%= label_tag(field_name, field_name.to_s.titleize) %>
+  <%= email_field_tag(field_name, model[field_name]) %>
+  <% if model.errors.include?(field_name)%>
+    <div style="color: red">
+      <% model.errors.full_messages_for(field_name).each do |msg| %>
+        <%= msg %>.
+      <% end %>
+    </div>
+  <% end %>
+</field>

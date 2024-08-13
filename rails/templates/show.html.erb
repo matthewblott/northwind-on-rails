@@ -1,0 +1,15 @@
+<% content_for :title, "<thing>" %>
+
+<%= turbo_stream_from @<thing> %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "Edit", edit_<thing>_path(@<thing>),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+
+  <%= link_to "Back", index_<thing>_path, role: "button" %>
+
+</controls>
+
+<%= render "form", <thing>: @<thing>, disabled: true %>

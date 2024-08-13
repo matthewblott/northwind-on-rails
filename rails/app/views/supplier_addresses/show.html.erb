@@ -1,0 +1,10 @@
+<% content_for :title, "Supplier Address" %>
+
+<controls class="turbo-native-hidden">
+  <%= link_to "Edit", edit_supplier_address_path(params[:supplier_id], params[:address_id]),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+  <%= link_to "Back", index_supplier_address_path(params[:supplier_id]), role: "button" %>
+</controls>
+
+<%= render partial: "address_form", locals: { address: @address } %>

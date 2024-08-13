@@ -1,0 +1,20 @@
+<% content_for :title, "Edit Region" %>
+
+<%= turbo_stream_from @region %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "region_form",
+    formaction: update_region_path(params[:region_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_region_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete,
+  url: destroy_region_path(params[:region_id], params[:region_id]),
+  :html => {:id => 'delete_region_form'} do |form| %>
+  <input type="hidden" name="region_id" value=<%= params[:region_id] %>>
+  <input type="hidden" name="customer_id" value=<%= params[params[:region_id]] %>>
+<% end %>
+
+<%= render "form", region: @region, disabled: false %>

@@ -1,0 +1,32 @@
+<% content_for :title, "Suppliers" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_supplier_path, new_path: new_supplier_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody id="foo" is="turbo-frame">
+    <% @suppliers.each do |supplier| %>
+      <tr>
+        <td title="Company Name"> <%= link_to supplier.company_name, show_supplier_path(supplier) %>
+        </td>
+        <td title="Region">
+          <%= supplier.region %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if turbo_native_app? %>
+  <%= turbo_frame_tag :foo2, 
+    loading: :lazy,
+    src: index_supplier_path(format: :turbo_stream, page: @pagy.next)
+  %>
+<% end %>

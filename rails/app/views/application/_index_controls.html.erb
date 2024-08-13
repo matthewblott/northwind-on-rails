@@ -1,0 +1,8 @@
+<div class="hidden" data-controller="bridge--control-group">
+  <%= link_to "Home", root_path,
+    data: { bridge__control_group_target: "item1", bridge_title: 'Home' },
+    role: "button" %>
+  <%= link_to "Sign out", destroy_employee_session_path,
+    data: { bridge__control_group_target: "item2", bridge_title: 'Sign out', turbo_method: "delete" },
+    role: "button" %>
+</div>

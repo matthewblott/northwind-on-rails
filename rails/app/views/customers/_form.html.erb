@@ -1,0 +1,25 @@
+<div style="height: 10px">
+</div>
+
+<%= form_with(model: customer, url: false, :html => {:id => 'customer_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <%= text_field(@customer, :id) %>
+    <%= text_field(@customer, :company_name) %>
+    <%= text_field(@customer, :contact_name) %>
+    <%= text_field(@customer, :contact_title) %>
+    <%= text_field(@customer, :phone) %>
+    <%= text_field(@customer, :fax) %>    
+
+    <% if turbo_native_ios? %>
+      <field>
+        <% if @customer.id == nil %>
+          <%= link_to "Addresses", '/', role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;", disabled: true %>
+        <% else %>
+          <%= link_to "Addresses", index_customer_address_path(@customer), role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+        <% end %>
+      </field>
+    <% end %>
+
+  </fieldset>
+<% end %>
+

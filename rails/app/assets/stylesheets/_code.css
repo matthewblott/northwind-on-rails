@@ -1,0 +1,55 @@
+/**
+* Code
+*/
+pre,
+code,
+kbd,
+samp {
+font-size: 0.875em;
+font-family: var(--pico-font-family);
+}
+
+pre code {
+font-size: inherit;
+font-family: inherit;
+}
+
+pre {
+-ms-overflow-style: scrollbar;
+overflow: auto;
+}
+
+pre,
+code,
+kbd {
+border-radius: var(--pico-border-radius);
+background: var(--pico-code-background-color);
+color: var(--pico-code-color);
+font-weight: var(--pico-font-weight);
+line-height: initial;
+}
+
+code,
+kbd {
+display: inline-block;
+padding: 0.375rem;
+}
+
+pre {
+display: block;
+margin-bottom: var(--pico-spacing);
+overflow-x: auto;
+}
+pre > code {
+display: block;
+padding: var(--pico-spacing);
+background: none;
+line-height: var(--pico-line-height);
+}
+
+kbd {
+background-color: var(--pico-code-kbd-background-color);
+color: var(--pico-code-kbd-color);
+vertical-align: baseline;
+}
+

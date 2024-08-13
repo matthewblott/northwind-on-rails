@@ -1,0 +1,30 @@
+<% content_for :title, "Employees" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_employee_path, new_path: new_employee_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Line Manager</th>
+      <th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td title="Name">
+          <%= link_to employee.full_name, show_employee_path(employee) %>
+        </td>
+        <td title="Line Manager">
+          <%= employee.manager_first_name %> <%= employee.manager_last_name %>
+        </td>
+        <td title="Region">
+          <%= employee.region_name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

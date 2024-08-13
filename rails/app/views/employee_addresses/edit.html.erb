@@ -1,0 +1,21 @@
+<% content_for :title, "Edit Employee Address" %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "address_form",
+    formaction: update_employee_address_path(params[:employee_id], params[:address_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+
+  <%= button_tag "Delete", form: "delete_address_form",
+    data: { controller: 'bridge--delete', bridge__delete_target: "submit" } %>
+
+  <%= link_to "Back", index_employee_address_path(params[:employee_id]), role: "button" %>
+</controls>
+
+
+<%= form_with method: :delete, url: destroy_employee_address_path(params[:employee_id], params[:address_id]), :html => {:id => 'delete_address_form'} do |form| %>
+  <input type="hidden" name="address_id" value=<%= params[:address_id] %>>
+  <input type="hidden" name="employee_id" value=<%= params[params[:employee_id]] %>>
+<% end %>
+
+<%= render partial: "address_form", locals: { address: @address } %>

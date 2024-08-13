@@ -1,0 +1,43 @@
+<div style="height: 10px">
+</div>
+<form action="<%= search_customer_path %>" id="customer-search-form" method="post"></form>
+<form action="<%= search_employee_path %>" id="employee-search-form" method="post"></form>
+<form action="<%= search_address_path %>" id="address-search-form" method="post"></form>
+
+<%= form_with(model: order, url: false, :html => {:id => 'order_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <%= text_field(@order, :id) %>
+    <!-- Customer -->
+    <%= render partial: "search_field", locals: { 
+      field_name: :customer_id,
+      field_value: @order.customer_id,
+      field_text: @order&.customer&.company_name,
+      form_id: "customer-search-form", 
+      search_results_id: 'customer_search_results' } %>
+    <!-- Items-->
+    <% if turbo_native_ios? %>
+      <field>
+        <%= link_to "Items", index_order_item_path(@order), role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+      </field>
+    <% end %>
+    <!-- Employee -->
+    <%= render partial: "search_field", locals: { 
+      field_name: :employee_id,
+      field_value: @order.employee_id,
+      field_text: @order.employee.full_name,
+      form_id: "employee-search-form", 
+      search_results_id: 'employee_search_results' } %>
+    <%= date_field(@order, :order_date) %>
+    <%= date_field(@order, :shipped_date) %>
+    <!-- Address -->
+    <%= render partial: "search_field", locals: { 
+      field_name: :address_id,
+      field_value: @order.address_id,
+      field_text: @order&.address&.name,
+      form_id: "address-search-form", 
+      search_results_id: 'address_search_results' } %>
+    <%= money_field(@order, :shipping_fee) %>
+    <%= text_field(@order, :payment_type) %>
+    <%= date_field(@order, :paid_date) %>
+  </fieldset>
+<% end %>

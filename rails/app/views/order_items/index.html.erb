@@ -1,0 +1,36 @@
+<% content_for :title, "Order Items" %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "New", new_order_item_path,
+    data: { controller: 'bridge--new', bridge__new_target: "submit" },
+    role: "button" %>
+
+  <%= link_to "Back", show_order_path(params[:order_id]), role: "button" %>
+
+</controls>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product Code</th>
+      <th>Quantity</th>
+      <th>Discount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td title="Product Code">
+          <%= link_to order_item.product.product_code, show_order_item_path(params[:order_id], order_item.product_id) %>
+        </td>
+        <td title="Quantity">
+          <%= order_item.quantity %>
+        </td>
+        <td title="Discount">
+          <%= order_item.discount %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

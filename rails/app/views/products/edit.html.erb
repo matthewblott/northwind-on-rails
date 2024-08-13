@@ -1,0 +1,20 @@
+<% content_for :title, "Edit Product" %>
+
+<%= turbo_stream_from @product %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "product_form",
+    formaction: update_product_path(params[:product_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_product_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete,
+  url: destroy_product_path(params[:product_id], params[:product_id]),
+  :html => {:id => 'delete_product_form'} do |form| %>
+  <input type="hidden" name="product_id" value=<%= params[:product_id] %>>
+  <input type="hidden" name="customer_id" value=<%= params[params[:product_id]] %>>
+<% end %>
+
+<%= render "form", product: @product, disabled: false %>

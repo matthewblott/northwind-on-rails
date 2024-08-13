@@ -1,0 +1,22 @@
+<% if defined?(field_name) == nil %>
+  <% field_name = '' %>
+<% end %>
+<% if defined?(field_value) == nil %>
+  <% field_value = '' %>
+<% end %>
+<% if defined?(field_text) == nil %>
+  <% field_text = '' %>
+<% end %>
+<% field_id = "_#{SecureRandom.uuid}" %>
+<field data-controller="search-field" id="<%= field_id %>">
+  <label for="<%= field_name %>"><%= field_name.to_s.titlecase %></label>
+  <input type="hidden" data-search-field-target="value"
+    name="<%= field_name %>" value="<%= field_value %>" id="<%= field_name %>">
+  <input type="search" name="q" data-search-field-target="query" form="<%= form_id %>" placeholder="Search"
+    data-action="input->search-field#search"
+  value="<%= field_text %>">
+  <button form="<%= form_id %>" type="submit" data-search-field-target="submit" style="display: none;"></button>
+  <span data-search-field-target="text" style="display: none;"><%= field_value %></span>
+</field>
+<div id="<%= search_results_id %>" data-controller="search-results" data-search-results-search-field-outlet="#<%= field_id %>"
+  data-search-results-target="container"></div>

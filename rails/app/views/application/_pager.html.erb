@@ -1,0 +1,22 @@
+<controls class="turbo-native-hidden">
+
+  <%= link_to "First", path + "?page=1", role: "button" %>
+  <% if pagy.page > 1 %>
+    <%= link_to "Previous", path + "?page=" + (pagy.page - 1).to_s, role: "button"  %>
+  <% else %>
+    <a href="#" role="button">Previous</a>
+  <% end %>
+  <% if pagy.page == pagy.last %>
+    <a href="#" role="button">Next</a>
+  <% else %>
+    <%= link_to "Next", path + "?page=" + (pagy.page.next).to_s, role: "button" %>
+  <% end %>
+  <%= link_to "Last", path + "?page=" + (pagy.last).to_s, role: "button" %>
+
+  <%= link_to "New", new_path,
+    data: { controller: 'bridge--new', bridge__new_target: "submit" },
+    role: "button" %>
+
+</controls>
+
+

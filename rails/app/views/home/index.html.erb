@@ -1,0 +1,42 @@
+<% content_for :title, "Northwind" %>
+<% if turbo_native_ios? %>
+
+  <fieldset>
+    <field>
+      <%= link_to "Customers", index_customer_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+    <field>
+      <%= link_to "Employees", index_employee_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>    
+    <field>
+      <%= link_to "Orders", index_order_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+    <field>
+      <%= link_to "Products", index_product_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+    <field>
+      <%= link_to "Regions", index_region_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+    <field>
+      <%= link_to "Shippers", index_shipper_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+    <field>
+      <%= link_to "Suppliers", index_supplier_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    </field>
+  </fieldset>
+
+  <div class="turbo-native-hidden">
+    <% if employee_signed_in? %>
+      <%= button_tag "Sign out", form: "logout_form",
+        data: { controller: 'bridge--custom', bridge__custom_target: "submit", class: "turbo-native-hidden" }
+       %>
+    <% else %>
+      <%#= link_to 'Sign in', new_employee_session_path, role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+    <% end %>
+  </div>
+
+  <%= form_with url: destroy_employee_session_path, :html => {:id => 'logout_form'}, method: :delete do |form| %>
+  <% end %>
+
+
+ <% end %>

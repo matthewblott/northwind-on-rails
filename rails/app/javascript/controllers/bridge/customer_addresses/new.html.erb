@@ -1,0 +1,8 @@
+<h1>New Customer Address</h1>
+
+<controls>
+  <%= button_tag "Create", form: "address_form", formaction: create_customer_address_path(params[:customer_id]) %>
+  <%= link_to "Back", index_customer_address_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= render "address_form", address: @address %>

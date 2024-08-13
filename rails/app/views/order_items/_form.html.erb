@@ -1,0 +1,18 @@
+<div style="height: 10px">
+</div>
+
+<form action="<%= search_product_path %>" id="product-search-form" method="post"></form>
+
+<%= form_with(model: order_item, url: false, :html => {:id => 'order_item_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <!-- Product -->
+    <%= render partial: "search_field", locals: { 
+      field_name: :product_id,
+      field_value: @order_item.product_id,
+      field_text: @order_item&.product&.product_code,
+      form_id: "product-search-form", 
+      search_results_id: 'product_search_results' } %>
+    <%= money_field(@order_item, :unit_price) %>
+    <%= number_field(@order_item, :quantity) %>
+    <%= money_field(@order_item, :discount) %>
+  <% end %>

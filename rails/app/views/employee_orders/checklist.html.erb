@@ -1,0 +1,52 @@
+<h1>Employee Orders Checklist</h1>
+<controls>
+  <%= link_to "Back", index_employee_order_path(params[:employee_id]), role: "button" %>
+</controls>
+<style>
+  @scope (checklist) {
+    ul {
+      display: flex;
+    }
+
+    li {
+      width: 100px;
+      text-align: center;
+      border-top: 1px solid black;
+      border-right: 1px solid black;
+
+      &:hover {
+        background-color: lightgrey;
+        cursor: grab;
+      }
+    }
+
+    li:first-child {
+      border-top: 1px solid black;
+      border-left: 1px solid black;
+    }
+
+    ul:last-child li {
+      border-bottom: 1px solid black;
+    }
+
+  }
+</style>
+<br>
+<br>
+<checklist>
+  <% @orders.each do |order| %>
+    <%= turbo_stream_from order %>
+    <ul id="orders" data-controller="sortable" data-sortable-resource-name-value="order" data-sortable-param-name-value="status">
+      <li data-sortable-update-url="<%= move_employee_order_path(order.employee_id, order.id) %>">
+        <% if order.shipped_date == nil %>
+          <%= order.id %>
+        <% end %>
+      </li>
+      <li data-sortable-update-url="<%= move_employee_order_path(order.employee_id, order.id) %>">
+        <% if order.shipped_date != nil %>
+          <%= order.id %>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+</checklist>

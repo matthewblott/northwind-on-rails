@@ -1,0 +1,12 @@
+<% content_for :title, "Customer Address" %>
+
+<%= turbo_stream_from @address %>
+
+<controls class="turbo-native-hidden">
+  <%= link_to "Edit", edit_customer_address_path(params[:customer_id], params[:address_id]),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+  <%= link_to "Back", index_customer_address_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= render "address_form", address: @address, disabled: true %>

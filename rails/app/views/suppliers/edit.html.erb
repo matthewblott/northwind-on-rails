@@ -1,0 +1,20 @@
+<% content_for :title, "Edit Supplier" %>
+
+<%= turbo_stream_from @supplier %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "supplier_form",
+    formaction: update_supplier_path(params[:supplier_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_supplier_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete,
+  url: destroy_supplier_path(params[:supplier_id], params[:supplier_id]),
+  :html => {:id => 'delete_supplier_form'} do |form| %>
+  <input type="hidden" name="supplier_id" value=<%= params[:supplier_id] %>>
+  <input type="hidden" name="customer_id" value=<%= params[params[:supplier_id]] %>>
+<% end %>
+
+<%= render "form", supplier: @supplier, disabled: false %>

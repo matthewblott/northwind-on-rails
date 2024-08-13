@@ -1,0 +1,28 @@
+<% content_for :title, "Employee" %>
+
+<%= turbo_stream_from @employee %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to "Edit", edit_employee_path(@employee),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+
+  <control-group data-controller="bridge--control-group">
+
+    <%= link_to "Addresses", index_employee_address_path(@employee),
+      data: { bridge__control_group_target: "item1", bridge_title: 'Addresses' },
+      role: "button" %>
+
+    <%= link_to "Orders", index_employee_order_path(@employee),
+      data: { bridge__control_group_target: "item2", bridge_title: 'Orders' },
+      role: "button" %>
+
+  </control-group>
+
+  <%= link_to "Back", index_employee_path, role: "button" %>
+
+</controls>
+
+<%= render "form", employee: @employee, disabled: true %>
+

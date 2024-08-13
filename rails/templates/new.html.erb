@@ -1,0 +1,11 @@
+<% content_for :title, "New <thing>" %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Create", form: "<thing>_form",
+    formaction: create_<thing>_path,
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_<thing>_path, role: "button" %>
+</controls>
+
+<%= render "form", <thing>: @<thing>, disabled: false %>

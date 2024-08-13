@@ -1,0 +1,8 @@
+<div style="height: 10px">
+</div>
+
+<%= form_with(model: region, url: false, :html => {:id => 'region_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <%= text_field(@region, :name) %>
+  </fieldset>
+<% end %>

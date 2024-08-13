@@ -1,0 +1,36 @@
+<% content_for :title, "Customer Addresses" %>
+
+<controls class="turbo-native-hidden">
+  <%= link_to "New", new_customer_address_path(@customer.id),
+    data: { controller: 'bridge--new', bridge__new_target: "submit" },
+    role: "button" %>
+  <%= link_to "Back", index_customer_path(@customer.id), role: "button" %>
+</controls>
+<table>
+  <thead>
+    <tr>
+      <th>Address Name</th>
+      <th>Address Line 1</th>
+      <th>Postal Town</th>
+      <th>Post Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.addresses.each do |address| %>
+      <tr>
+        <td title="Address Name">
+          <%= link_to address.name, show_customer_address_path(@customer.id, address.id) %>
+        </td>
+        <td title="Address Line 1">
+          <%= address.address_line_1 %>
+        </td>
+        <td title="Postal Town">
+          <%= address.postal_town %>
+        </td>
+        <td title="Post Code">
+          <%= address.post_code %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

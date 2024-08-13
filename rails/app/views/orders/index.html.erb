@@ -1,0 +1,30 @@
+<% content_for :title, "Orders" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_order_path, new_path: new_order_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>Company Name</th>
+      <th>Employee Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td title="Order Id">
+          <%= link_to order.id, show_order_path(order) %>
+        </td>
+        <td title="Company Name">
+          <%= order.customer.company_name %>
+        </td>
+        <td title="Employee Name">
+          <%= order.employee.first_name + " " + order.employee.last_name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

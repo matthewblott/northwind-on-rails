@@ -1,0 +1,38 @@
+<menu header>
+  <label for="menu"></label>
+  <input type="checkbox" id="menu">
+  <!--
+  <brand>
+    <a href="/">Northwind</a>
+  </brand>
+  -->
+  <nav>
+    <ul>
+      <li><a href="/customers">Customers</a></li>
+      <li><a href="/employees">Employees</a></li>
+      <li><a href="/orders">Orders</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="/regions">Regions</a></li>
+      <li><a href="/shippers">Shippers</a></li>
+      <li><a href="/suppliers">Suppliers</a></li>
+    </ul>
+    <ul>
+      <!--
+      <li>
+        <% if employee_signed_in? %>
+          Welcome <%= current_employee.first_name %>
+        <% end %>
+      </li>
+      -->
+      <li>
+        <% if employee_signed_in? %>
+          <%= link_to 'Sign out', destroy_employee_session_path, data: { turbo_method: :delete } %>
+        <% else %>
+          <%= link_to 'Sign in', new_employee_session_path %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+  <menu-open></menu-open>
+  <menu-close></menu-close>
+</menu>

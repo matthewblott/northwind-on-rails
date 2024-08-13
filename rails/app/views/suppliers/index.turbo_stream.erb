@@ -1,0 +1,20 @@
+<%= turbo_stream.append :foo do %>
+  <% @suppliers.each do |supplier| %>
+    <tr>
+      <td title="Company Name"> <%= link_to supplier.company_name, show_supplier_path(supplier) %>
+      </td>
+      <td title="Region">
+        <%= supplier.region %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace :foo2 do %>
+  <% if @pagy.next.present? %>
+    <%= turbo_frame_tag :foo2, 
+      loading: :lazy,
+      src: index_supplier_path(format: :turbo_stream, page: @pagy.next)
+    %>
+  <% end %>
+<% end %>

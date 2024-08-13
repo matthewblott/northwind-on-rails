@@ -1,0 +1,201 @@
+/*
+  ====
+  Menu
+  ====
+*/
+
+:root {
+  --menu-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M4 6l16 0' /%3E%3Cpath d='M4 12l16 0' /%3E%3Cpath d='M4 18l16 0' /%3E%3C/svg%3E%0A");
+  --menu-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' /%3E%3Cpath d='M18 6l-12 12' /%3E%3Cpath d='M6 6l12 12' /%3E%3C/svg%3E%0A");
+  --menu-brand-height: 1.8rem;
+  --menu-right-width: 20rem;
+  --menu-font-size: calc(var(--menu-brand-height) * 0.6);
+  --menu-spacing-y: calc(var(--menu-brand-height) / 8);
+  --menu-icon-height: var(--menu-brand-height);
+  --menu-spacing-fixed-right: 0.2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --menu-open: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M4 6l16 0' /%3E%3Cpath d='M4 12l16 0' /%3E%3Cpath d='M4 18l16 0' /%3E%3C/svg%3E%0A");
+    --menu-close: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' /%3E%3Cpath d='M18 6l-12 12' /%3E%3Cpath d='M6 6l12 12' /%3E%3C/svg%3E%0A");
+  }
+}
+
+nav ul {
+  align-items: flex-start;
+}
+
+brand {
+  font-size: var(--menu-brand-height);
+  display: flex;
+  align-items: center;
+}
+
+menu-open {
+  min-width: var(--menu-icon-height);
+  min-height: var(--menu-icon-height);
+  background-image: var(--menu-open);
+}
+
+menu-close {
+  min-width: var(--menu-icon-height);
+  min-height: var(--menu-icon-height);
+  background-image: var(--menu-close);
+}
+
+menu {
+  padding-inline-start: 0;
+  display: flex;
+  align-items: center;
+  min-height: var(--menu-icon-height);
+  position: fixed;
+  width: 100%;
+  background-color: var(--pico-background-color);
+
+  &[header] {
+    top: 0;
+    margin-top: 0;
+  }
+
+  &[footer] {
+    bottom: 0;
+    margin-bottom: 0;
+  }
+
+  > label:first-of-type {
+    display: none;
+  }
+
+  > input[type="checkbox"] {
+    display: none;
+
+    &~menu-open {
+      display: none;
+    }
+
+    &~menu-close {
+      display: none;
+    }
+  }
+
+
+  > nav:first-of-type {
+    width: calc(100% - var(--menu-right-width));
+    display: flex;
+    justify-content: center;
+
+    > ul {
+      padding: 0;
+      display: flex;
+      font-size: var(--menu-font-size);
+
+      > li {
+        list-style: none;
+        margin-right: 0.5rem;
+      }
+    }
+    
+    > ul:last-of-type {
+      width: var(--menu-right-width);
+      display: flex;
+      justify-content: flex-end;
+      position: fixed;
+      right: var(--menu-spacing-fixed-right);
+    }
+  }
+
+}
+
+@media (max-width: 1024px) {
+  menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    width: 100%;
+    
+    &[header] > label:first-of-type {
+      top: 0;
+    }
+
+    &[footer] > label:first-of-type {
+      bottom: 0;
+    }
+
+    > label:first-of-type {
+      right: 0;
+      position: fixed;
+      display: inline-block;
+      cursor: pointer;
+      min-width: var(--menu-icon-height);
+      min-height: var(--menu-icon-height);
+      display: inline-block;
+      background-color: transparent;
+      z-index: 1;
+    }
+
+    &[header] > input[type="checkbox"] {
+      top: var(--menu-spacing-y);
+
+      &:checked {
+        &~menu-close {
+          top: var(--menu-spacing-y);
+        }
+      }
+    }
+
+    &[footer] > input[type="checkbox"] {
+      bottom: var(--menu-spacing-y);
+      
+      &:checked {
+        &~menu-close {
+          bottom: var(--menu-spacing-y);
+        }
+      }
+
+    }
+
+    > input[type="checkbox"] {
+      &~menu-open {
+        position: fixed;
+        right: var(--menu-spacing-fixed-right);
+        display: inline-block;
+      }
+
+      &~nav:first-of-type {
+        display:none;
+      }
+
+      &:checked {
+        &~nav {
+          left: 0;
+          flex-direction: column;
+          display: block;
+          width: 100%;
+
+          > ul {
+            flex-direction: column;
+          }
+
+          > ul:last-of-type {
+            flex-direction: column;
+            position: relative;
+            margin-left: 0.2rem;
+          }
+
+        }
+
+        &~menu-open {
+          display: none;
+        }
+
+        &~menu-close {
+          display: inline-block;
+          position: fixed;
+          right: var(--menu-spacing-fixed-right);
+        }
+      }
+    }
+  }
+}

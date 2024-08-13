@@ -1,0 +1,20 @@
+<% content_for :title, "Edit Shipper" %>
+
+<%= turbo_stream_from @shipper %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "shipper_form",
+    formaction: update_shipper_path(params[:shipper_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_shipper_path(params[:customer_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete,
+  url: destroy_shipper_path(params[:shipper_id], params[:shipper_id]),
+  :html => {:id => 'delete_shipper_form'} do |form| %>
+  <input type="hidden" name="shipper_id" value=<%= params[:shipper_id] %>>
+  <input type="hidden" name="customer_id" value=<%= params[params[:shipper_id]] %>>
+<% end %>
+
+<%= render "form", shipper: @shipper, disabled: false %>

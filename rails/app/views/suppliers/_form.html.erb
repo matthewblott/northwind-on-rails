@@ -1,0 +1,24 @@
+<div style="height: 10px">
+</div>
+<%= form_with(model: supplier, url: false, :html => {:id => 'supplier_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <%= text_field(supplier, :company_name) %>
+    <%= text_field(supplier, :contact_name) %>
+    <%= text_field(supplier, :contact_title) %>
+    <%= text_field(supplier, :region) %>
+    <%= text_field(supplier, :phone) %>
+    <%= text_field(supplier, :fax) %>
+    <%= text_field(supplier, :homepage) %>
+
+    <% if turbo_native_ios? %>
+      <field>
+        <% if @supplier.id == nil %>
+          <%= link_to "Addresses", '/', role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;", disabled: true %>
+        <% else %>
+          <%= link_to "Addresses", index_supplier_address_path(@supplier), role: "button", style: "width: 100%; margin-top: 15px; margin-bottom: 5px;" %>
+        <% end %>
+      </field>
+    <% end %>
+
+  </fieldset>
+<% end %>

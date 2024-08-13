@@ -1,0 +1,15 @@
+<% content_for :title, "Shipper" %>
+
+<%= turbo_stream_from @shipper %>
+
+<controls class="turbo-native-hidden">
+
+  <%= link_to 'Edit', edit_shipper_path(@shipper),
+    data: { controller: 'bridge--edit', bridge__edit_target: "submit" },
+    role: "button" %>
+
+  <%= link_to "Back", index_shipper_path, role: "button" %>
+
+</controls>
+
+<%= render "form", shipper: @shipper, disabled: true %>

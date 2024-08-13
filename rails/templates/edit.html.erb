@@ -1,0 +1,20 @@
+<% content_for :title, "Edit <thing>" %>
+
+<%= turbo_stream_from @<thing> %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Update", form: "<thing>_form",
+    formaction: update_<thing>_path(params[:<thing>_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_<thing>_path(params[:<thing>_id]), role: "button" %>
+</controls>
+
+<%= form_with method: :delete,
+  url: destroy_<thing>_path(params[:<thing>_id], params[:<thing>_id]),
+  :html => {:id => 'delete_<thing>_form'} do |form| %>
+  <input type="hidden" name="<thing>_id" value=<%= params[:<thing>_id] %>>
+  <input type="hidden" name="<thing>_id" value=<%= params[params[:<thing>_id]] %>>
+<% end %>
+
+<%= render "form", <thing>: @<thing>, disabled: false %>

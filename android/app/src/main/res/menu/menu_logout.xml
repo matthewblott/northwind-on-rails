@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+  <item
+      android:clickable="true"
+      android:id="@+id/logout_item"
+      app:actionLayout="@layout/logout"
+      android:title="Foo"
+      app:showAsAction="always"
+      tools:ignore="HardcodedText" />
+
+<!--  <item-->
+<!--      android:id="@+id/logout_item"-->
+<!--      android:icon="@drawable/logout_24dp"-->
+<!--      android:title="Foo"-->
+<!--      app:showAsAction="withText"-->
+<!--      tools:ignore="HardcodedText" />-->
+</menu>

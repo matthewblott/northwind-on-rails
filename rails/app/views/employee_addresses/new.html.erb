@@ -1,0 +1,11 @@
+<% content_for :title, "New Employee Address" %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Create", form: "address_form",
+    formaction: create_employee_address_path(params[:employee_id]),
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_employee_address_path(params[:employee_id]), role: "button" %>
+</controls>
+
+<%= render "address_form", address: @address %>

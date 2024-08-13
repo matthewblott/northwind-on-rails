@@ -1,0 +1,41 @@
+<% content_for :title, "Supplier Addresses" %>
+
+<controls class="turbo-native-hidden">
+  <%= link_to "New", new_supplier_address_path(@supplier.id),
+    data: { controller: 'bridge--new', bridge__new_target: "submit" },
+    role: "button" %>
+  <%= link_to "Back", show_supplier_path(params[:supplier_id]), role: "button" %>
+</controls>
+
+<table>
+  <thead>
+    <tr>
+      <th>Supplier Id</th>
+      <th>Address Id</th>
+      <th>Address Line 1</th>
+      <th>Postal Town</th>
+      <th>Post Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @supplier.addresses.each do |address| %>
+      <tr>
+        <td title="Supplier Id">
+          <%= link_to @supplier.id, show_supplier_address_path(@supplier.id, address.id) %>
+        </td>
+        <td title="Address Id">
+          <%= address.id %>
+        </td>
+        <td title="Address Line 1">
+          <%= address.address_line_1 %>
+        </td>
+        <td title="Postal Town">
+          <%= address.postal_town %>
+        </td>
+        <td title="Post Code">
+          <%= address.post_code %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

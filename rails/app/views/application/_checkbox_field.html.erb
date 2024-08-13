@@ -1,0 +1,4 @@
+<field>
+  <%= label_tag(field_name, field_name.to_s.titleize) %>
+  <%= check_box('', field_name, options = {:checked => model[field_name]}) %>
+</field>

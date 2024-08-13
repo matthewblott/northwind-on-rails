@@ -1,0 +1,11 @@
+<% content_for :title, "New Shipper" %>
+
+<controls class="turbo-native-hidden">
+  <%= button_tag "Create", form: "shipper_form",
+    formaction: create_shipper_path,
+    data: { controller: 'bridge--save', bridge__save_target: "submit" },
+    method: :patch %>
+  <%= link_to "Back", index_shipper_path, role: "button" %>
+</controls>
+
+<%= render "form", shipper: @shipper, disabled: false %>

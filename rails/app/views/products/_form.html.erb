@@ -1,0 +1,12 @@
+<div style="height: 10px">
+</div>
+
+<%= form_with(model: product, url: false, :html => {:id => 'product_form'}) do %>
+  <fieldset <%= 'disabled' if disabled %>>
+    <%= text_field(@product, :product_code) %>
+    <%= text_field(@product, :product_name) %>
+    <%= text_field(@product, :description) %>
+    <%= money_field(@product, :standard_cost) %>
+    <%= money_field(@product, :list_price) %>
+    <%= checkbox_field(@product, :discontinued) %>
+  <% end %>

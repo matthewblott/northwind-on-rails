@@ -1,0 +1,33 @@
+<% content_for :title, "Employee Orders (Paid)" %>
+
+<controls>
+  <%= link_to "Back", index_employee_order_path(params[:employee_id]), role: "button" %>
+</controls>
+<table>
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>Company Name</th>
+      <th>Order Date</th>
+      <th>Shipped Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td title="Order Id">
+          <%= link_to order.id, show_order_path(order) %>
+        </td>
+        <td title="Company Name">
+          <%= order.customer.company_name %>
+        </td>
+        <td title="Order Date">
+          <%= order.order_date.strftime("%Y-%m-%d") %>
+        </td>
+        <td title="Shipped Date">
+          <%= order.shipped_date&.strftime("%Y-%m-%d") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

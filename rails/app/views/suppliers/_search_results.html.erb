@@ -1,0 +1,8 @@
+<% regions.each do |region| %>
+  <div>
+    <a data-action="search-results#select" href="#">
+      <%= hidden_field_tag :region_id, region.id %>
+      <%= highlight(region.name, params[:q]) %>
+    </a>
+  </div>
+<% end %>

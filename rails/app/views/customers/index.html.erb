@@ -1,0 +1,30 @@
+<% content_for :title, "Customers" %>
+
+<%= render partial: "pager", locals: { pagy: @pagy, path: index_customer_path, new_path: new_customer_path } %>
+
+<%= render partial: "index_controls" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer Id</th>
+      <th>Company Name</th>
+      <th>Contact Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td title="Customer Id">
+          <%= link_to customer.id, show_customer_path(customer) %>
+        </td>
+        <td title="Company Name">
+          <%= customer.company_name %>
+        </td>
+        <td title="Contact Name">
+          <%= customer.contact_name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

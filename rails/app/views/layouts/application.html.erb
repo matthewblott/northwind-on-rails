@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page_title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
+
+    <% if turbo_native_app? %>
+      <style>
+        :root {
+          --pico-border-radius: 1rem;
+        }
+      </style>
+    <% end %>
+
+    <%= yield :head %>
+  </head>
+  <body class="<%= "turbo-native" if turbo_native_app? %>">
+
+    <% unless turbo_native_app? %>
+      <% if employee_signed_in? %>
+        <%= render "shared/header", title: page_title %>
+      <% end %>
+
+      <p class="notice turbo-native-hidden"><%= notice %></p>
+      <p class="alert turbo-native-hidden"><%= alert %></p>
+
+    <% end %>
+
+    <%#= render "shared/header", title: page_title %> 
+
+    <main class="<%= 'header-spacer' if !turbo_native_app? %>">
+      <h1 class="turbo-native-hidden"><%= page_title %></h1>
+      <%= yield %>
+    </main>
+    <%= render "shared/footer" %>
+  </body>
+</html>
