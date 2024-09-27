@@ -16,8 +16,8 @@ class RegionsController < ApplicationController
       []
     end
 
-    items = {}
-    regions.map { |region| items[region.id] = region.name }
+    @items = {}
+    regions.map { |region| @items[region.id] = region.name }
 
     respond_to do |format|
       format.turbo_stream do
@@ -25,7 +25,7 @@ class RegionsController < ApplicationController
           turbo_stream: turbo_stream.update(
             "region_search_results",
             partial: "search_results",
-            locals: {items: items, q: q}
+            locals: {items: @items, q: q}
           )
         )
       end

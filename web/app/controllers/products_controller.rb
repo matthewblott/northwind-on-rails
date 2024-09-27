@@ -15,8 +15,8 @@ class ProductsController < ApplicationController
       []
     end
 
-    items = {}
-    products.map { |product| items[product.id] = product.product_code }
+    @items = {}
+    products.map { |product| @items[product.id] = product.product_code }
 
     respond_to do |format|
       format.turbo_stream do
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
           turbo_stream: turbo_stream.update(
             "product_search_results",
             partial: "search_results",
-            locals: {items: items, q: q}
+            locals: {items: @items, q: q}
           )
         )
       end

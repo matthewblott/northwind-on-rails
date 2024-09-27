@@ -7,8 +7,8 @@ class AddressesController < ApplicationController
       []
     end
 
-    items = {}
-    addresses.map { |address| items[address.id] = address.address.name }
+    @items = {}
+    addresses.map { |address| @items[address.id] = address.address.name }
 
     respond_to do |format|
       format.turbo_stream do
@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
           turbo_stream: turbo_stream.update(
             "address_search_results",
             partial: "search_results",
-            locals: {items: items, q: q}
+            locals: {items: @items, q: q}
           )
         )
       end
