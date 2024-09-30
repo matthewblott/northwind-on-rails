@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def turbo_native_ios?
-    request.user_agent.include?("Turbo Native iOS")
+    request.user_agent&.include?("Turbo Native iOS")
   end
 
 end

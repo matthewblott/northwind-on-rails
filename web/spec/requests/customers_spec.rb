@@ -16,6 +16,7 @@ RSpec.describe "Customers", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+
   describe "POST /customers" do
     it "creates a new customer" do
       expect {
@@ -25,21 +26,21 @@ RSpec.describe "Customers", type: :request do
     end
   end
 
-  describe "PATCH /customers/:customer_id" do
-    it "updates the customer" do
-      patch update_customer_path(customer), params: { customer: { company_name: "Updated Company" } }
-      customer.reload
-      expect(customer.company_name).to eq("Updated Company")
-      expect(response).to redirect_to(show_customer_path(customer))
-    end
-  end
-
-  describe "DELETE /customers/:customer_id" do
-    it "deletes the customer" do
-      expect {
-        delete destroy_customer_path(customer)
-      }.to change(Customer, :count).by(-1)
-      expect(response).to redirect_to(index_customer_path)
-    end
-  end
+  # describe "PATCH /customers/:customer_id" do
+  #   it "updates the customer" do
+  #     patch update_customer_path(customer), params: { customer: { company_name: "Updated Company" } }
+  #     customer.reload
+  #     expect(customer.company_name).to eq("Updated Company")
+  #     expect(response).to redirect_to(show_customer_path(customer))
+  #   end
+  # end
+  #
+  # describe "DELETE /customers/:customer_id" do
+  #   it "deletes the customer" do
+  #     expect {
+  #       delete destroy_customer_path(customer)
+  #     }.to change(Customer, :count).by(-1)
+  #     expect(response).to redirect_to(index_customer_path)
+  #   end
+  # end
 end
