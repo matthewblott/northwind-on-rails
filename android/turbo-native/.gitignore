@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# JetBrains
+.idea
+
+# Android
+!app/lint.xml
+
+# Gradle
+.gradle
+build
+gradle
+gradlew
+kls_database.db
+local.properties
