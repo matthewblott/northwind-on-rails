@@ -1,4 +1,4 @@
-package com.example.northwind.features.web
+package com.example.northwind.features
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -13,17 +13,19 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.MenuBuilder
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.northwind.BASE_URL
+import com.example.northwind.HOME_URL
+import com.example.northwind.LOGOUT_URL
 import com.example.northwind.R
-import com.example.northwind.base.NavDestination
-import com.example.northwind.util.BASE_URL
-import com.example.northwind.util.LOGOUT_URL
-import dev.hotwire.turbo.fragments.TurboFragment
-import dev.hotwire.turbo.nav.TurboNavGraphDestination
+import dev.hotwire.core.turbo.visit.VisitAction.REPLACE
+import dev.hotwire.core.turbo.visit.VisitOptions
+import dev.hotwire.navigation.destinations.HotwireDestinationDeepLink
+import dev.hotwire.navigation.fragments.HotwireFragment
 
-@TurboNavGraphDestination(uri = "northwind://fragment/home")
-
-class HomeFragment : TurboFragment(), NavDestination {
-  @SuppressLint("UseRequireInsteadOfGet")
+@HotwireDestinationDeepLink(uri = "northwind://fragment/home")
+class HomeFragment : HotwireFragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     return inflater.inflate(R.layout.fragment_home, container, false)
   }
@@ -41,25 +43,21 @@ class HomeFragment : TurboFragment(), NavDestination {
     setButton(R.id.button_suppliers, "Suppliers")
 
     // Toolbar
-    val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-    val menuProvider = object : MenuProvider {
+    val toolbar = view.findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar) ?: return
 
+    val menuProvider = object : MenuProvider {
       override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         if (menu is MenuBuilder) menu.setOptionalIconsVisible(true)
-
         menuInflater.inflate(R.menu.menu_logout, menu)
-
         val item: MenuItem? = menu.findItem(R.id.logout_item)
         val vw = item?.actionView
-
         if(vw != null) {
           val itemText = vw.findViewById<TextView>(R.id.item_logout_text)
           itemText.setOnClickListener { v ->
-            navigate(LOGOUT_URL)
+            navigator.route(LOGOUT_URL)
           }
         }
       }
-
       override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return true
       }
@@ -69,14 +67,13 @@ class HomeFragment : TurboFragment(), NavDestination {
   }
 
   private fun setButton(viewId: Int, text: String) {
-    val buttonView = this.view?.findViewById<View>(viewId)
-    val template = buttonView?.findViewWithTag<View>("button_template")
+    val buttonView = this.view?.findViewById<View>(viewId) ?: return
+    val template = buttonView.findViewWithTag<View>("button_template")
     val button = template as Button
     val url = "$BASE_URL/$text".lowercase()
-
     button.text = text
     button.setOnClickListener {
-      navigate(url)
+      navigator.route(url, VisitOptions(action = REPLACE))
     }
   }
 

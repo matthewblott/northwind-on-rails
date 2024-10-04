@@ -8,9 +8,9 @@ import dev.hotwire.navigation.destinations.HotwireDestination
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-class ButtonComponent(
+open class ButtonComponent(
   name: String,
-  delegate: BridgeDelegate<HotwireDestination>
+  private val delegate: BridgeDelegate<HotwireDestination>
 ) : BridgeComponent<HotwireDestination>(name, delegate) {
 
   override fun onReceive(message: Message) {

@@ -13,13 +13,10 @@ import dev.hotwire.core.turbo.visit.VisitOptions
 import dev.hotwire.navigation.destinations.HotwireDestinationDeepLink
 import dev.hotwire.navigation.fragments.HotwireWebFragment
 
-@HotwireDestinationDeepLink(uri = "northwind://fragment/web")
-open class WebFragment : HotwireWebFragment() {
+@HotwireDestinationDeepLink(uri = "northwind://fragment/login")
+open class LoginFragment : HotwireWebFragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-    val nav = this.navigator
-
-    return inflater.inflate(R.layout.fragment, container, false)
+    return inflater.inflate(R.layout.fragment_login, container, false)
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,7 +32,7 @@ open class WebFragment : HotwireWebFragment() {
 
   override fun onVisitErrorReceived(location: String, error: VisitError) {
     if (error is HttpError.ClientError.Unauthorized) {
-    navigator.route(LOGIN_URL, VisitOptions(action = REPLACE))
+      navigator.route(LOGIN_URL, VisitOptions(action = REPLACE))
     } else {
       super.onVisitErrorReceived(location, error)
     }

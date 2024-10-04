@@ -1,6 +1,15 @@
 package com.example.northwind
 
 import com.example.northwind.components.ButtonComponent
+import com.example.northwind.components.ControlGroup
+import com.example.northwind.components.CustomButton
+import com.example.northwind.components.DeleteButton
+import com.example.northwind.components.EditButton
+import com.example.northwind.components.LinkTo
+import com.example.northwind.components.NewButton
+import com.example.northwind.components.SaveButton
+import com.example.northwind.features.LoginFragment
+import com.example.northwind.features.HomeFragment
 import com.example.northwind.features.WebFragment
 import dev.hotwire.core.BuildConfig
 import dev.hotwire.core.bridge.BridgeComponentFactory
@@ -32,11 +41,21 @@ class Application : android.app.Application() {
 
     Hotwire.registerFragmentDestinations(
       WebFragment::class,
+      LoginFragment::class,
+      HomeFragment::class,
     )
 
     Hotwire.registerBridgeComponents(
-      BridgeComponentFactory("form", ::ButtonComponent),
+      BridgeComponentFactory("button", ::ButtonComponent),
+      BridgeComponentFactory("control-group", ::ControlGroup),
+      BridgeComponentFactory("custom", ::CustomButton),
+      BridgeComponentFactory("delete", ::DeleteButton),
+      BridgeComponentFactory("edit", ::EditButton),
+      BridgeComponentFactory("link-to", ::LinkTo),
+      BridgeComponentFactory("new", ::NewButton),
+      BridgeComponentFactory("save", ::SaveButton),
     )
+
     Hotwire.registerRouteDecisionHandlers(
       AppNavigationRouteDecisionHandler(),
       BrowserTabRouteDecisionHandler()

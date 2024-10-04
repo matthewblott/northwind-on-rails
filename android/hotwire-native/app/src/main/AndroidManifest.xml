@@ -3,19 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
   <uses-permission android:name="android.permission.INTERNET"/>
   <application
-      android:name="com.example.northwind.Application"
-      android:allowBackup="false"
+      android:name=".Application"
       android:enableOnBackInvokedCallback="true"
       android:label="Northwind"
       android:supportsRtl="false"
-      android:theme="@style/Theme.AppCompat"
-      tools:ignore="DataExtractionRules,GoogleAppIndexingWarning"
+      tools:ignore="MissingApplicationIcon"
       android:usesCleartextTraffic="true">
     <activity
-        android:name="com.example.northwind.main.MainActivity"
+        android:name=".main.MainActivity"
         android:launchMode="singleInstance"
         android:windowSoftInputMode="adjustResize"
-        android:exported="true">
+        android:exported="true"
+        android:theme="@style/MyTheme">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>

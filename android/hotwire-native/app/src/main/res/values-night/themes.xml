@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="MyTheme" parent="@style/Theme.Material3.DayNight.NoActionBar">
+    <item name="toolbarStyle">@style/CustomToolbarStyle</item>
+    <item name="toolbarNavigationButtonStyle">@style/CustomNavigationButtonStyle</item>
+
+    <!-- Primary brand color. -->
+    <item name="colorPrimary">@color/md_theme_dark_primary</item>
+    <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
+    <item name="colorPrimaryContainer">@color/md_theme_dark_primary</item>
+    <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimary</item>
+    <!-- Secondary brand color. -->
+    <item name="colorSecondary">@color/md_theme_dark_secondary</item>
+    <item name="colorOnSecondary">@color/md_theme_dark_onSecondary</item>
+    <item name="colorSecondaryContainer">@color/md_theme_dark_secondary</item>
+    <item name="colorOnSecondaryContainer">@color/md_theme_dark_onSecondary</item>
+    <!-- Background and surface -->
+    <item name="android:background">@color/md_theme_dark_background</item>
+    <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
+    <item name="colorSurface">@color/md_theme_dark_surface</item>
+    <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
+    <!-- Error color -->
+    <item name="colorError">@color/md_theme_dark_error</item>
+    <item name="colorOnError">@color/md_theme_dark_onError</item>
+
+  </style>
+
+  <style name="CustomToolbarStyle" parent="Widget.AppCompat.Toolbar">
+    <item name="android:background">#13171F</item>
+  </style>
+
+  <style name="CustomNavigationButtonStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+    <item name="tint">#FFF</item>
+  </style>
+</resources>

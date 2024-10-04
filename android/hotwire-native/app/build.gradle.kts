@@ -1,8 +1,7 @@
 plugins {
   id("com.android.application") version "8.4.1"
-  id("org.jetbrains.kotlin.android") version "2.0.0-RC1"
+  id("org.jetbrains.kotlin.android") version "1.9.0"
   id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
-  // id("org.jetbrains.kotlin.plugin.serialization") version "2.0.0-RC1"
 }
 
 buildscript {
@@ -43,7 +42,6 @@ dependencies {
   implementation("dev.hotwire:core:1.0.0")
   implementation("dev.hotwire:navigation-fragments:1.0.0")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
-  // implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
 }
 
 repositories {

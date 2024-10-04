@@ -1,0 +1,8 @@
+<resources>
+  <item name="menu_item_1" type="id"/>
+  <item name="menu_item_2" type="id"/>
+  <item name="menu_item_3" type="id"/>
+  <item name="menu_item_4" type="id"/>
+  <item name="menu_item_5" type="id"/>
+  <item name="menu_item_6" type="id"/>
+</resources>

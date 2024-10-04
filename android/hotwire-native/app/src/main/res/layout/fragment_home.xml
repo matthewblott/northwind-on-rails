@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:flexWrap="wrap"
+    app:justifyContent="space_evenly">
+  <com.google.android.material.appbar.AppBarLayout
+      android:id="@+id/app_bar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+  </com.google.android.material.appbar.AppBarLayout>
+    <include
+        layout="@layout/button"
+        app:customText="Customers"
+        android:id="@+id/button_customers"
+        tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          app:customText="Employees"
+          android:id="@+id/button_employees"
+          tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          android:id="@+id/button_orders"
+          tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          android:id="@+id/button_products"
+          tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          android:id="@+id/button_regions"
+          tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          android:id="@+id/button_shippers"
+          tools:ignore="HardcodedText" />
+      <include
+          layout="@layout/button"
+          android:id="@+id/button_suppliers"
+          tools:ignore="HardcodedText" />
+  <LinearLayout
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/app_bar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:width="150dp"
+        android:height="150dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+  </LinearLayout>
+</com.google.android.flexbox.FlexboxLayout>

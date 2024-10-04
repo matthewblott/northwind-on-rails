@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    tools:ignore="UseCompoundDrawables">
+
+<!--  <ImageView-->
+<!--      android:clickable="true"-->
+<!--      android:id="@+id/item_logout_icon"-->
+<!--      android:layout_width="wrap_content"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:src="@drawable/logout_24dp"-->
+<!--      tools:ignore="ContentDescription" />-->
+  <TextView
+      android:layout_marginEnd="20dp"
+      android:clickable="true"
+      android:id="@+id/item_logout_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="20sp"
+      android:text="Sign out"
+      tools:ignore="HardcodedText" />
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Light theme colors -->
+  <color name="md_theme_light_primary">#525f7a</color>
+  <color name="md_theme_light_onPrimary">#FFFFFF</color>
+  <color name="md_theme_light_secondary">#6E6E6E</color>
+  <color name="md_theme_light_onSecondary">#FFFFFF</color>
+  <color name="md_theme_light_background">#F5F5F5</color>
+  <color name="md_theme_light_onBackground">#000000</color>
+  <color name="md_theme_light_surface">#FFFFFF</color>
+  <color name="md_theme_light_onSurface">#000000</color>
+  <color name="md_theme_light_error">#B00020</color>
+  <color name="md_theme_light_onError">#FFFFFF</color>
+
+  <color name="button_ripple_color">#BB86FC</color> <!-- Ripple effect color -->
+
+  <!-- Dark theme colors -->
+  <color name="md_theme_dark_primary">#525f7a</color>
+  <color name="md_theme_dark_onPrimary">#FFFFFF</color>
+  <color name="md_theme_dark_secondary">#B0BEC5</color>
+  <color name="md_theme_dark_onSecondary">#000000</color>
+  <color name="md_theme_dark_background">#13171F</color>
+  <color name="md_theme_dark_onBackground">#FFFFFF</color>
+  <color name="md_theme_dark_surface">#1E1E1E</color>
+  <color name="md_theme_dark_onSurface">#FFFFFF</color>
+  <color name="md_theme_dark_error">#CF6679</color>
+  <color name="md_theme_dark_onError">#000000</color>
+</resources>

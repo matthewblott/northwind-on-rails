@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+  <Button
+      android:id="@+id/included_button"
+      android:tag="button_template"
+      android:layout_marginBottom="16dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:width="150dp"
+      android:height="150dp"
+      app:cornerRadius="0dp"
+      app:rippleColor="@color/button_ripple"
+      tools:ignore="HardcodedText,MissingConstraints" />
+</LinearLayout>
