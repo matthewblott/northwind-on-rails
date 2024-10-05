@@ -1,4 +1,4 @@
-import Strada
+import HotwireNative
 
 extension BridgeComponent {
   nonisolated static var allTypes: [BridgeComponent.Type] {

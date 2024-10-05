@@ -1,0 +1,12 @@
+//
+//  Debug.xcconfig
+//  Northwind
+//
+//  Created by Matthew Blott on 2024-10-05.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+DEBUG = 1
+GCC_OPTIMIZATION_LEVEL = 0
+SWIFT_OPTIMIZATION_LEVEL = -Onone

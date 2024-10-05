@@ -1,5 +1,4 @@
-import Turbo
-import Strada
+import HotwireNative
 import WebKit
 
 class WebViewController: VisitableViewController, BridgeDestination {

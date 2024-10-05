@@ -1,29 +1,38 @@
 import UIKit
-import Turbo
+import HotwireNative
 import WebKit
-import Strada
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder  {
   var window: UIWindow?
+  private lazy var navigator = Navigator(pathConfiguration: pathConfiguration, delegate: self)
+  private let rootURL = URL(string: "http://localhost:3000")!
   private let navigationController = UINavigationController()
   let viewController = WebViewController()
   
-  private lazy var session: Session = {
-    let webView = WKWebView(frame: .zero, configuration: .appConfiguration)
+  private func configureBridge() {
+    Hotwire.registerBridgeComponents([
+      CustomButton.self,
+      DeleteButton.self,
+      EditButton.self,
+      LinkTo.self,
+      NewButton.self,
+      SaveButton.self,
+    ])
+  }
 
-    if #available(iOS 16.4, *) {
-      webView.isInspectable = true
+  private func configureRootViewController() {
+    guard let window = window else {
+      fatalError()
     }
-    
-    Bridge.initialize(webView)
-    
-    let session = Session(webView: webView)
-    
-    session.delegate = self
-    
-    return session
-  }()
+    window.rootViewController = navigator.rootViewController
+  }
 
+  private lazy var pathConfiguration = PathConfiguration(sources: [
+//    .file(Bundle.main.url(forResource: "path-configuration", withExtension: "json")!),
+  ])
+}
+
+extension SceneDelegate: UIWindowSceneDelegate {
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     UINavigationBar.configureWithOpaqueBackground()
     guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -32,30 +41,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     self.window?.rootViewController = navigationController
     self.window?.makeKeyAndVisible()
     
-    visit(url: URL(string: "http://localhost:3000")!)
-  }
+    window = UIWindow(windowScene: windowScene)
+    window?.makeKeyAndVisible()
 
-  private func visit(url: URL) {
-    let controller = WebViewController()
-    controller.visitableURL = url
-    navigationController.pushViewController(controller, animated: true)
-    // session.visit(controller, options: proposal.options)
-    // session.visit(controller, action: VisitAction.advance)
-    session.visit(controller)
+    configureBridge()
+    configureRootViewController()
+
+    navigator.route(rootURL)
   }
 
 }
 
-extension SceneDelegate: SessionDelegate {
-  func session(_ session: Session, didProposeVisit proposal: VisitProposal) {
-    visit(url: proposal.url)
-  }
-    
-  func session(_ session: Session, didFailRequestForVisitable visitable: Visitable, error: Error) {
-    print("didFailRequestForVisitable: \(error)")
-  }
-    
-  func sessionWebViewProcessDidTerminate(_ session: Session) {
-    session.reload()
+extension SceneDelegate: NavigatorDelegate {
+  func handle(proposal: VisitProposal) -> ProposalResult {
+    return .acceptCustom(HotwireWebViewController(url: proposal.url))
   }
 }
