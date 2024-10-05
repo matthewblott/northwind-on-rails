@@ -1,22 +1,13 @@
 {
-  "originHash" : "ce6368e8128f4e725565c6b15eaee3d62b8fe81a92137e3ebf631d3f4f92b6c7",
+  "originHash" : "e043e35d89fc9c175f4169f4aa9709becdfb87b915ef76ee944456cb593c96b1",
   "pins" : [
     {
-      "identity" : "strada-ios",
+      "identity" : "hotwire-native-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hotwired/strada-ios",
+      "location" : "https://github.com/hotwired/hotwire-native-ios",
       "state" : {
-        "branch" : "main",
-        "revision" : "a44a86d4bab98d29cbba31446ee4834670613119"
-      }
-    },
-    {
-      "identity" : "turbo-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hotwired/turbo-ios",
-      "state" : {
-        "revision" : "90227d6a3d090ee4eaacfddca3ef4cc433380f2d",
-        "version" : "7.1.0"
+        "revision" : "9c7d6c263a528c0a02e3796a5f451eb8405e2107",
+        "version" : "1.0.0"
       }
     }
   ],
