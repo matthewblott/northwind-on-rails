@@ -4,14 +4,14 @@ import HotwireNative
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      Hotwire.config.backButtonDisplayMode = .minimal
-      Hotwire.config.showDoneButtonOnModals = true
+    Hotwire.config.backButtonDisplayMode = .minimal
+    Hotwire.config.showDoneButtonOnModals = true
 
-      #if DEBUG
-      Hotwire.config.debugLoggingEnabled = true
-      #endif
+    #if DEBUG
+    Hotwire.config.debugLoggingEnabled = true
+    #endif
 
-      return true
+    return true
   }
 
   // MARK: UISceneSession Lifecycle

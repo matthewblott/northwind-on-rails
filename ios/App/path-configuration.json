@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "enable_feature_x": true
+  },
+  "rules": [
+    {
+      "patterns": [
+        "/new$",
+        "/edit$",
+        "/signin$"
+      ],
+      "properties": {
+        "context": "default",
+        "pull_to_refresh_enabled": false
+      }
+    }
+  ]
+}

@@ -23,6 +23,7 @@
 		C984A2652C64DE1100D61EE5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A2642C64DE1100D61EE5 /* WebViewController.swift */; };
 		C984A2672C64DE6400D61EE5 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */; };
 		C984A26B2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */; };
+		C989DBF52CB546D0005C0D95 /* path-configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = C989DBF42CB546D0005C0D95 /* path-configuration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		C984A2642C64DE1100D61EE5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
+		C989DBF42CB546D0005C0D95 /* path-configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "path-configuration.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				C91EDDD12C6538C900D8178A /* Controllers */,
 				C91EDDD02C6538A400D8178A /* Components */,
 				C96665062CB187FF009AEE3B /* Debug.xcconfig */,
+				C989DBF42CB546D0005C0D95 /* path-configuration.json */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				C984A2542C64D79300D61EE5 /* Assets.xcassets in Resources */,
 				C984A2572C64D79300D61EE5 /* Base in Resources */,
+				C989DBF52CB546D0005C0D95 /* path-configuration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

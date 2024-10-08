@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder  {
   }
 
   private lazy var pathConfiguration = PathConfiguration(sources: [
-//    .file(Bundle.main.url(forResource: "path-configuration", withExtension: "json")!),
+    .file(Bundle.main.url(forResource: "path-configuration", withExtension: "json")!),
   ])
 }
 
