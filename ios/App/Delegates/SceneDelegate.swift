@@ -54,6 +54,12 @@ extension SceneDelegate: UIWindowSceneDelegate {
 
 extension SceneDelegate: NavigatorDelegate {
   func handle(proposal: VisitProposal) -> ProposalResult {
-    return .acceptCustom(HotwireWebViewController(url: proposal.url))
+    switch proposal.viewController {
+    case FooViewController.pathConfigurationIdentifier:
+        let numbersViewController = FooViewController(url: proposal.url, navigator: navigator)
+        return .acceptCustom(numbersViewController)
+    default:
+        return .accept
+    }
   }
 }

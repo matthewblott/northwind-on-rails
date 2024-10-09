@@ -13,6 +13,24 @@
         "context": "default",
         "pull_to_refresh_enabled": false
       }
+    },
+    {
+      "patterns": [
+        "^/employees/sign_in/$",
+        "^/employees/sign_in$"
+      ],
+      "properties": {
+        "title": "Northwind"
+      }
+    },
+    {
+      "patterns": [
+        "/customers$"
+      ],
+      "properties": {
+        "view_controller": "foo",
+        "title": "Foo"
+      }
     }
   ]
 }

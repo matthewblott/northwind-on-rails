@@ -24,6 +24,7 @@
 		C984A2672C64DE6400D61EE5 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */; };
 		C984A26B2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */; };
 		C989DBF52CB546D0005C0D95 /* path-configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = C989DBF42CB546D0005C0D95 /* path-configuration.json */; };
+		C989DBFD2CB6B784005C0D95 /* FooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989DBFC2CB6B784005C0D95 /* FooViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
 		C989DBF42CB546D0005C0D95 /* path-configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "path-configuration.json"; sourceTree = "<group>"; };
+		C989DBFC2CB6B784005C0D95 /* FooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				C984A2642C64DE1100D61EE5 /* WebViewController.swift */,
+				C989DBFC2CB6B784005C0D95 /* FooViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				C91EDDE82C677E9300D8178A /* CustomButton.swift in Sources */,
 				C91EDDCE2C652BE700D8178A /* UINavigationBar+Appearance.swift in Sources */,
 				C91EDDDC2C653A7800D8178A /* DeleteButton.swift in Sources */,
+				C989DBFD2CB6B784005C0D95 /* FooViewController.swift in Sources */,
 				C984A2652C64DE1100D61EE5 /* WebViewController.swift in Sources */,
 				C91EDDE22C653A8C00D8178A /* NewButton.swift in Sources */,
 				C91EDDCC2C65266000D8178A /* ButtonComponent.swift in Sources */,
