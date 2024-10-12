@@ -28,6 +28,15 @@
         "/customers$"
       ],
       "properties": {
+        "view_controller": "bar",
+        "title": "Bar"
+      }
+    },
+    {
+      "patterns": [
+        "/foo$"
+      ],
+      "properties": {
         "view_controller": "foo",
         "title": "Foo"
       }

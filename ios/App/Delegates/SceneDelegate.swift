@@ -4,9 +4,11 @@ import WebKit
 
 class SceneDelegate: UIResponder  {
   var window: UIWindow?
+  
   private lazy var navigator = Navigator(pathConfiguration: pathConfiguration, delegate: self)
   private let rootURL = URL(string: "http://localhost:3000")!
   private let navigationController = UINavigationController()
+  
   let viewController = WebViewController()
   
   private func configureBridge() {
@@ -56,10 +58,16 @@ extension SceneDelegate: NavigatorDelegate {
   func handle(proposal: VisitProposal) -> ProposalResult {
     switch proposal.viewController {
     case FooViewController.pathConfigurationIdentifier:
-        let numbersViewController = FooViewController(url: proposal.url, navigator: navigator)
-        return .acceptCustom(numbersViewController)
+      let fooViewController = FooViewController(url: proposal.url, navigator: navigator)
+      return .acceptCustom(fooViewController)
+      
+    case BarViewController.pathConfigurationIdentifier:
+//      let barViewController = BarViewController(url: proposal.url, navigator: navigator)
+      let barViewController = BarViewController(url: proposal.url)
+      return .acceptCustom(barViewController)
+      
     default:
-        return .accept
+       return .accept
     }
   }
 }

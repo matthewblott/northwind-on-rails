@@ -11,26 +11,24 @@ class FooViewController: UIViewController, PathConfigurationIdentifiable {
     self.url = url
     self.navigator = navigator
   }
-  // This is called when the view controller's view is loaded into memory
+  
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
       
-      // Set the background color of the view
-      view.backgroundColor = .white
+    view.backgroundColor = .white
       
-      // Create a label and add it to the view
-      let label = UILabel()
-      label.text = "Hello, World!"
-      label.textColor = .black
-      label.textAlignment = .center
-      label.translatesAutoresizingMaskIntoConstraints = false
+    let label = UILabel()
+    
+    label.text = "Hello, World!"
+    label.textColor = .black
+    label.textAlignment = .center
+    label.translatesAutoresizingMaskIntoConstraints = false
       
-      view.addSubview(label)
+    view.addSubview(label)
       
-      // Center the label in the view using Auto Layout constraints
-      NSLayoutConstraint.activate([
-          label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-          label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-      ])
+    NSLayoutConstraint.activate([
+      label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
   }
 }

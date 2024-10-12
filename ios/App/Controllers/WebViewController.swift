@@ -3,9 +3,10 @@ import WebKit
 
 class WebViewController: VisitableViewController, BridgeDestination {
   private lazy var bridgeDelegate: BridgeDelegate = {
-            BridgeDelegate(location: visitableURL.absoluteString,
-                           destination: self,
-                           componentTypes: BridgeComponent.allTypes)
+    BridgeDelegate(
+      location: visitableURL.absoluteString,
+      destination: self,
+      componentTypes: BridgeComponent.allTypes)
   }()
     
   override func viewDidLoad() {

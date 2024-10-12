@@ -18,13 +18,13 @@
 		C96665032CB17632009AEE3B /* HotwireNative in Frameworks */ = {isa = PBXBuildFile; productRef = C96665022CB17632009AEE3B /* HotwireNative */; };
 		C984A24B2C64D79200D61EE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A24A2C64D79200D61EE5 /* AppDelegate.swift */; };
 		C984A24D2C64D79200D61EE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A24C2C64D79200D61EE5 /* SceneDelegate.swift */; };
-		C984A2542C64D79300D61EE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C984A2532C64D79300D61EE5 /* Assets.xcassets */; };
-		C984A2572C64D79300D61EE5 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C984A2562C64D79300D61EE5 /* Base */; };
 		C984A2652C64DE1100D61EE5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A2642C64DE1100D61EE5 /* WebViewController.swift */; };
 		C984A2672C64DE6400D61EE5 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */; };
 		C984A26B2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */; };
 		C989DBF52CB546D0005C0D95 /* path-configuration.json in Resources */ = {isa = PBXBuildFile; fileRef = C989DBF42CB546D0005C0D95 /* path-configuration.json */; };
 		C989DBFD2CB6B784005C0D95 /* FooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C989DBFC2CB6B784005C0D95 /* FooViewController.swift */; };
+		C9E83B472CBAFB9A0092B63A /* BarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E83B462CBAFB9A0092B63A /* BarViewController.swift */; };
+		C9E83B492CBAFC140092B63A /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E83B482CBAFC140092B63A /* BarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,14 +40,14 @@
 		C984A2472C64D79200D61EE5 /* Northwind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Northwind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C984A24A2C64D79200D61EE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C984A24C2C64D79200D61EE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C984A2532C64D79300D61EE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C984A2562C64D79300D61EE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C984A2582C64D79300D61EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C984A2642C64DE1100D61EE5 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		C984A2662C64DE6300D61EE5 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
 		C984A26A2C64DEC300D61EE5 /* WKWebViewConfiguration+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebViewConfiguration+App.swift"; sourceTree = "<group>"; };
 		C989DBF42CB546D0005C0D95 /* path-configuration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "path-configuration.json"; sourceTree = "<group>"; };
 		C989DBFC2CB6B784005C0D95 /* FooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooViewController.swift; sourceTree = "<group>"; };
+		C9E83B462CBAFB9A0092B63A /* BarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewController.swift; sourceTree = "<group>"; };
+		C9E83B482CBAFC140092B63A /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +82,8 @@
 			children = (
 				C984A2642C64DE1100D61EE5 /* WebViewController.swift */,
 				C989DBFC2CB6B784005C0D95 /* FooViewController.swift */,
+				C9E83B462CBAFB9A0092B63A /* BarViewController.swift */,
+				C9E83B482CBAFC140092B63A /* BarView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,8 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				C984A2582C64D79300D61EE5 /* Info.plist */,
-				C984A2532C64D79300D61EE5 /* Assets.xcassets */,
-				C984A2552C64D79300D61EE5 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -208,8 +208,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C984A2542C64D79300D61EE5 /* Assets.xcassets in Resources */,
-				C984A2572C64D79300D61EE5 /* Base in Resources */,
 				C989DBF52CB546D0005C0D95 /* path-configuration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,11 +221,13 @@
 			files = (
 				C984A2672C64DE6400D61EE5 /* BridgeComponent+App.swift in Sources */,
 				C91EDDDE2C653A7F00D8178A /* EditButton.swift in Sources */,
+				C9E83B472CBAFB9A0092B63A /* BarViewController.swift in Sources */,
 				C984A24B2C64D79200D61EE5 /* AppDelegate.swift in Sources */,
 				C91EDDE02C653A8600D8178A /* LinkTo.swift in Sources */,
 				C91EDDE82C677E9300D8178A /* CustomButton.swift in Sources */,
 				C91EDDCE2C652BE700D8178A /* UINavigationBar+Appearance.swift in Sources */,
 				C91EDDDC2C653A7800D8178A /* DeleteButton.swift in Sources */,
+				C9E83B492CBAFC140092B63A /* BarView.swift in Sources */,
 				C989DBFD2CB6B784005C0D95 /* FooViewController.swift in Sources */,
 				C984A2652C64DE1100D61EE5 /* WebViewController.swift in Sources */,
 				C91EDDE22C653A8C00D8178A /* NewButton.swift in Sources */,
@@ -239,17 +239,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		C984A2552C64D79300D61EE5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C984A2562C64D79300D61EE5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C984A2592C64D79300D61EE5 /* Debug */ = {
