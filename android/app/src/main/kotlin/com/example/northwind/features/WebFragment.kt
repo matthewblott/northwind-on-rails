@@ -16,9 +16,6 @@ import dev.hotwire.navigation.fragments.HotwireWebFragment
 @HotwireDestinationDeepLink(uri = "northwind://fragment/web")
 open class WebFragment : HotwireWebFragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-    val nav = this.navigator
-
     return inflater.inflate(R.layout.fragment, container, false)
   }
 

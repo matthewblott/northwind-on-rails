@@ -1,7 +1,7 @@
 plugins {
   id("com.android.application") version "8.4.1"
   id("org.jetbrains.kotlin.android") version "1.9.0"
-  id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
+  id("org.jetbrains.kotlin.plugin.serialization") version "1.9.20"
 }
 
 buildscript {
@@ -10,6 +10,7 @@ buildscript {
     mavenCentral()
   }
 }
+val composeVersion = "1.5.4"
 
 android {
   namespace = "com.example.northwind"
@@ -21,8 +22,11 @@ android {
 
   buildFeatures {
     viewBinding = true
+    compose = true
   }
-
+  composeOptions {
+    kotlinCompilerExtensionVersion = composeVersion
+  }
   kotlinOptions {
     jvmTarget = JavaVersion.VERSION_18.toString()
   }
@@ -37,7 +41,11 @@ android {
 dependencies {
   implementation("androidx.appcompat:appcompat:1.7.0")
   implementation("androidx.browser:browser:1.8.0")
+  implementation("androidx.compose.ui:ui:$composeVersion")
+  implementation("androidx.compose.material:material:$composeVersion")
+  implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
   implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+  implementation("androidx.navigation:navigation-compose:2.5.0")
   implementation("com.google.android.flexbox:flexbox:3.0.0")
   implementation("dev.hotwire:core:1.0.0")
   implementation("dev.hotwire:navigation-fragments:1.0.0")
